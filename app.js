@@ -6,15 +6,13 @@ const port = 3000;
 const app = express();
 
 function connect() {
-    const connectionString = 'AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==';
-    const databaseName = 'Control';
-    const containerName = 'Purchases';
+    const connectionString = '<YOUR_CONNECTION_STRING_GOES_HERE>';
+    const databaseName = 'control';
+    const containerName = 'purchases';
 
     const client = new CosmosClient(connectionString);
     var database = client.database(databaseName);
     var container = database.container(containerName);
-
-    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
     return container;
 }
@@ -28,7 +26,10 @@ app.get('/purchases', async (req, res, next) => {
         const container = connect();
         const { resources: items } = await container.items.readAll().fetchAll();
     
-        res.status(204).send(items);
+        console.log(items);
+
+        res.status(200)
+           .send(items);
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
