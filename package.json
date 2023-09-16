@@ -1,0 +1,19 @@
+{
+  "name": "node-cosmos",
+  "version": "1.0.0",
+  "description": "A simple app that connects to the Azure Cosmos DB by using Node.js SDK",
+  "main": "app",
+  "scripts": {
+    "start": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/cosmos": "^4.0.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
