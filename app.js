@@ -4,6 +4,8 @@ const { connect } = require('./database/cosmos-connector');
 const port = 3000;
 const app = express();
 
+console.log(`Application running on port ${3000}`);
+
 app.get('/', async (req, res, next) => {
     res.send('<h2>Main Page</h2>')
 });
