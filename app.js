@@ -1,5 +1,4 @@
 const express = require('express');
-const { connect } = require('./database/cosmos-connector');
 
 const port = 3000;
 const app = express();
