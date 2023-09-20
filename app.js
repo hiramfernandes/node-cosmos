@@ -13,7 +13,7 @@ app.get('/', async (req, res, next) => {
     res.send('<h2>Main Page</h2>')
 });
 
-app.use(purchasesRoutes);
-app.use(vendorRoutes);
+app.use('/api/purchases/', purchasesRoutes);
+app.use('/api/vendors/', vendorRoutes);
 
 app.listen(port);

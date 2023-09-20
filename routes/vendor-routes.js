@@ -3,7 +3,7 @@ const { connect } = require('../database/cosmos-connector');
 
 const router = express.Router();
 
-router.get('/vendors', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
         const container = connect('vendors');
         const { resources: items } = await container.items.readAll().fetchAll();
