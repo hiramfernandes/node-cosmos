@@ -18,6 +18,17 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+router.post('/', async (req, res, next) => {
+    var receivedObject = req.body;
+    console.log(receivedObject);
+
+    const purchase = { ...receivedObject };
+    await container.items.upsert(purchase);
+
+    res.status(201)
+       .json({purchase});
+})
+
 router.get('/:purchaseid/:purchasedate', async (req, res, next) => {
     const purchaseId = req.params.purchaseid;
     const purchaseDate = req.params.purchasedate;
